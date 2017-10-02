@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "jakob",
+    "password": "kort9188",
+    "database": "sensorLogging",
+    "host": "gta.jhaaf.dk",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "jakob",
+    "password": "kort9188",
+    "database": "sensorLogging",
+    "host": "gta.jhaaf.dk",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "jakob",
+    "password": "kort9188",
+    "database": "sensorLogging",
+    "host": "gta.jhaaf.dk",
+    "dialect": "mysql"
+  }
+}
