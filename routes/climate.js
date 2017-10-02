@@ -33,11 +33,10 @@ router.route('/')
 
 router.route('/:user')
     .get(function (req, res) {
-        models.Climate.find({
-            where: {User: req.params.user}
-        }).then(function (climate) {
-            climate.User.apikey = null;
-            res.json({data: climate});
+        models.Climate.findAll({
+            where: {UserId: req.params.user}
+        }).then(function (climates) {
+            res.json({data: climates});
         });
     });
 
