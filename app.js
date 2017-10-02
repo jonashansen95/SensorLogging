@@ -8,18 +8,6 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
-// Passport setup
-// var passport = require('passport');
-// var flash = require('connect-flash');
-// var session = require('express-session');
-//
-// app.use(session({secret: 'asdklasjkfhgsdkjfhgasdkjfhgasdkfhbasdfhjkasdvfa'}));
-// app.use(passport.initialize());
-// app.use(passport.session());
-// app.use(flash());
-//
-// require('./config/passport')(passport);
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
