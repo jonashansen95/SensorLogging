@@ -44,7 +44,7 @@ module.exports = router;
 
 function isLoggedIn(req, res, next) {
     models.User.find({
-        where: {apiKey: req.header('x-api-key')}
+        where: {apiKey: req.header('x-api-key'), active: true}
     }).then(function (user) {
         if (user !== null) {
             req.user = user;
