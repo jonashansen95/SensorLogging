@@ -1,0 +1,8 @@
+node:
+  build: .
+  ports:
+    - "10000:8080"
+  links:
+    - mongo:mongo
+  volumes:
+    - .:/usr/src/app
