@@ -10,7 +10,7 @@ router.use(function (req, res, next) {
 router.route('/')
     .post(isLoggedIn, function (req, res) {
         var user = models.User.build({
-            name: req.body.temp
+            name: req.body.name
         });
         user.save().then(function () {
             res.json({data: user});
