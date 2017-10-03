@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../models');
+var hat = require('hat');
 
 router.use(function (req, res, next) {
     console.log(req.url);
@@ -10,7 +11,8 @@ router.use(function (req, res, next) {
 router.route('/')
     .post(isLoggedIn, function (req, res) {
         var user = models.User.build({
-            name: req.body.name
+            name: req.body.name,
+            apikey: hat()
         });
         user.save().then(function () {
             res.json({data: user});

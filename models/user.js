@@ -1,11 +1,10 @@
 "use strict";
-var hat = require('hat');
+
 module.exports = function (sequelize, DataTypes) {
     var User = sequelize.define("User", {
         name: DataTypes.STRING,
         apikey: {
-            type: DataTypes.STRING,
-            defaultValue: hat()
+            type: DataTypes.STRING
         },
         active: {
             type: DataTypes.BOOLEAN,
