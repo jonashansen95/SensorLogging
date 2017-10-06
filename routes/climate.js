@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../models');
+var request = require('request');
 
 router.use(function (req, res, next) {
     console.log(req.url);
@@ -15,6 +16,11 @@ router.route('/')
             UserId: req.user.id
         });
         climate.save().then(function () {
+            request.post('https://discordapp.com/api/webhooks/365594994016518160/P92x7fsr9B8t9g318m1I-pJjmqEsVYUUSZ0_rOodsByUk13TbkN2AJZFt9ohOnHjeWKq', {
+                form: {
+                    content: 'It is now ' + climate.temp + '°C & the humidity is ' + climate.humidity + '% at ' + req.user.name + '\'s place.'
+                }
+            });
             res.json({data: climate});
         });
     })
