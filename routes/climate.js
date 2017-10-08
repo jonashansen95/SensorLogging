@@ -16,7 +16,7 @@ router.route('/')
             UserId: req.user.id
         });
         climate.save().then(function () {
-            request.post('https://discordapp.com/api/webhooks/365594994016518160/P92x7fsr9B8t9g318m1I-pJjmqEsVYUUSZ0_rOodsByUk13TbkN2AJZFt9ohOnHjeWKq', {
+            request.post('https://discordapp.com/api/webhooks/366589877686370304/mydsERo9RdJVeE-toIO2C03jvy82GfcL1Ko-13aYddnRw3CNH2cn_PivfcMCDzPxQf8O', {
                 form: {
                     content: 'It is now ' + climate.temp + '°C & the humidity is ' + climate.humidity + '% at ' + req.user.name + '\'s place.'
                 }
@@ -41,6 +41,17 @@ router.route('/:user')
     .get(function (req, res) {
         models.Climate.findAll({
             where: {UserId: req.params.user}
+        }).then(function (climates) {
+            res.json({data: climates});
+        });
+    });
+
+router.route('/:user/:limit')
+    .get(function (req, res) {
+        models.Climate.findAll({
+            where: {UserId: req.params.user},
+            limit: parseInt(req.params.limit),
+            order: [['id', 'DESC']]
         }).then(function (climates) {
             res.json({data: climates});
         });
