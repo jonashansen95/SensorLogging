@@ -14,6 +14,7 @@ module.exports = function (sequelize, DataTypes) {
 
     User.associate = function (models) {
         User.hasMany(models.Climate);
+        User.hasMany(models.GpsEntry);
     };
     return User;
 };

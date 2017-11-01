@@ -28,9 +28,11 @@ app.use(function (req, res, next) {
 var index = require('./routes/index');
 var user = require('./routes/user');
 var climate = require('./routes/climate');
+var gps = require('./routes/gps');
 app.use('/', index);
 app.use('/user', user);
 app.use('/climate', climate);
+app.use('/gps', gps);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
